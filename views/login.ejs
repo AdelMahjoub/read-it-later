@@ -1,0 +1,31 @@
+<% include templates/head %>
+
+<% include templates/navigation %>
+
+<p>
+  <% include templates/errors %>
+  <% include templates/infos %>
+</p>
+
+<form action="/login" method="post">
+  <label for="email">Email</label>
+  <br>
+  <input
+  id="email" 
+  type="email"
+  name="email"
+  placeholder="example@example.com"
+  autofocus>
+  <br><br>
+  <label for="password">Password</label>
+  <br>
+  <input
+  id="password" 
+  type="password"
+  name="password"
+  placeholder="password">
+  <br><br>
+  <input type="submit" value="Login">
+</form>
+
+<% include templates/foot %>

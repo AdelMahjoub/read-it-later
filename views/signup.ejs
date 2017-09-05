@@ -1,0 +1,46 @@
+<% include templates/head %>
+
+<% include templates/navigation %>
+
+<p>
+  <% include templates/errors %>
+  <% include templates/infos %>
+</p>
+
+<form action="/signup" method="post">
+  <label for="username">Username</label>
+  <br>
+  <input
+  id="username" 
+  type="text"
+  name="username"
+  placeholder="username"
+  autofocus>
+  <br><br>
+  <label for="email">Email</label>
+  <br>
+  <input
+  id="email" 
+  type="email"
+  name="email"
+  placeholder="example@example.com"
+  autofocus>
+  <br><br>
+  <label for="password">Password</label>
+  <br>
+  <input
+  id="password" 
+  type="password"
+  name="password"
+  placeholder="password">
+  <br>
+  <input
+  id="confirm-password" 
+  type="password"
+  name="confirmPassword"
+  placeholder="confirm password">
+  <br><br>
+  <input type="submit" value="Signup">
+</form>
+
+<% include templates/foot %>

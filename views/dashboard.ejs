@@ -1,0 +1,64 @@
+<% include templates/head %>
+
+<% include templates/navigation %>
+
+<p>
+  <% include templates/errors %>
+  <% include templates/infos %>
+</p>
+
+<p>
+  <form action="/dashboard" method="post">
+    <input 
+    type="text"
+    placeholder="Article URL"
+    name="articleUrl"
+    autofocus>
+    <input type="submit" value="Add new article">
+  </form>
+</p>
+
+<p>
+  <% if(locals.articles && locals.articles.length) { %>
+  <table id="articles">
+    <caption><b>Articles</b></caption>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>TITLE</th>
+        <th>URL</th>
+        <th>DATE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% locals.articles.forEach(function(article) { %>
+        <tr>
+          <td><%= article.id %></td>
+          <td>
+            <a href="/articles/<%= article.id %>">
+              <%= article.title.substring(0,50).concat('...') %>
+            </a>
+          </td>
+          <td>
+            <a
+            style="text-decoration: none; color: green;" 
+            href="<%= article.url %>" target="_blank">
+              <%= article.url.substring(0,50).concat('...')  %>
+            </a>
+          </td>
+          <td><%= (new Date(article.created_at * 1000)).toLocaleDateString() %></td>
+          <td>
+            <a
+            style="text-decoration: none; color: red;"
+            href="/articles/delete/<%= article.id %>">&#10008;</a>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>  
+  <% } else { %>
+  <span>No articles to read</span>
+  <% } %>
+</p>
+
+<% include templates/foot %>

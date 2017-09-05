@@ -1,0 +1,41 @@
+{
+  "name": "read-it-later",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "server:dev": "NODE_ENV=development nodemon --inspect",
+    "server:prod": "NODE_ENV=production forever server.js",
+    "start": "npm run server:prod",
+    "dev": "npm run server:dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["node", "express", "sqlite3"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.17.2",
+    "compression": "^1.7.0",
+    "connect-flash": "^0.1.1",
+    "connect-sqlite3": "^0.9.10",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "express-validator": "^4.1.1",
+    "forever": "^0.15.3",
+    "helmet": "^3.8.1",
+    "node-pre-gyp": "^0.6.36",
+    "node-readability": "^3.0.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sqlite3": "^3.1.9",
+    "validator": "^8.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "nsp": "^2.7.0"
+  }
+}

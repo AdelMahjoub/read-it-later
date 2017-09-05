@@ -1,0 +1,50 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+table#articles, table#articles th, table#articles td{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table#articles th, table#articles td {
+  padding: 10px;
+  text-align: left;
+}
+
+table#articles tr:nth-child(even) {
+   background-color: #eee;
+}
+
+table#articles tr:nth-child(odd) {
+   background-color: #fff;
+}
+
+table#articles th{
+  background-color: #333;
+  color: white;
+}
+
+
+#menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+#menu li {
+  padding-right: 20px;
+}
+
+.error {
+  color: red;
+}
+
+.info {
+  color: green;
+}

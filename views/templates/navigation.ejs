@@ -1,0 +1,22 @@
+<nav id="menu">
+  <ul>
+    <li>
+      <a href="/">Home</a>
+    </li>
+    <% if(!user) { %>
+    <li>
+      <a href="/Login">Login</a>
+    </li>
+    <li>
+      <a href="/signup">Signup</a>
+    </li>
+    <% } else { %>
+    <li>
+      <a href="/dashboard">Dashboard</a>
+    </li>
+    <li>
+      <a href="/logout">Logout</a>
+    </li>
+    <% } %>
+  </ul>
+</nav>
