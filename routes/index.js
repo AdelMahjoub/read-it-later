@@ -68,10 +68,6 @@ router.route('/articles/delete/:id?')
     article.remove
   )
 
-router.get('/articles/delete/:id', (req, res, next) => {
-  res.json({status: 'ok'});
-})
-
 router.get('/logout', logout);
 
 router.use(notFound);
