@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config();                               // https://www.npmjs.com/package/dotenv
 require('./configs/passport')();
 const express      = require('express');                  // http://expressjs.com/en/4x/api.html
 const bodyParser   = require('body-parser');              // https://github.com/expressjs/body-parser
