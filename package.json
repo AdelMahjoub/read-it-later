@@ -10,7 +10,11 @@
     "dev": "npm run server:dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["node", "express", "sqlite3"],
+  "keywords": [
+    "node",
+    "express",
+    "sqlite3"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -27,6 +31,7 @@
     "express-validator": "^4.1.1",
     "forever": "^0.15.3",
     "helmet": "^3.8.1",
+    "html-pdf": "^2.1.0",
     "node-pre-gyp": "^0.6.36",
     "node-readability": "^3.0.0",
     "passport": "^0.4.0",

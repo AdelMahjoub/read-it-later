@@ -1,3 +1,5 @@
-module.exports = function(req, res, next) {
+const render = function(req, res, next) {
   res.render('index');
 }
+
+module.exports = { render }

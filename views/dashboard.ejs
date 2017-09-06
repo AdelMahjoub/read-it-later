@@ -49,6 +49,11 @@
           <td><%= (new Date(article.created_at * 1000)).toLocaleDateString() %></td>
           <td>
             <a
+            style="text-decoration: none; color: lightcoral;" 
+            href="/articles/pdf/<%= article.id %>">PDF</a>
+          </td>
+          <td>
+            <a
             style="text-decoration: none; color: red;"
             href="/articles/delete/<%= article.id %>">&#10008;</a>
           </td>

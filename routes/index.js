@@ -1,6 +1,9 @@
 const router   = require('express').Router();
 const passport = require('passport');
 
+const pdf = require('html-pdf');
+const Article = require('../models/Article'); 
+
 const notify       = require('../middlewares/notifiy');
 const errorHandler = require('../middlewares/errorHandler');
 const authGuard    = require('../middlewares/authGuard');
@@ -13,13 +16,14 @@ const dashboard = require('../controllers/dashboard');
 const article   = require('../controllers/article');
 const notFound  = require('../controllers/notFound');
 
-router.get('/', home);
+router.route('/')
+  .get(home.render)
 
 router.route('/signup')
   .get(signup.form)
   .post( 
     signup.validate, 
-    notify('error'), 
+    notify('error', '/signup'), 
     signup.register,
     passport.authenticate('local', {
       failureRedirect: '/login',
@@ -32,7 +36,7 @@ router.route('/login')
   .get(login.form)
   .post(
     login.validate,
-    notify('error'),
+    notify('error', '/login'),
     passport.authenticate('local', {
       failureRedirect: '/login',
       successRedirect: '/dashboard',
@@ -48,7 +52,7 @@ router.route('/dashboard')
   .post(
     authGuard,
     dashboard.validate,
-    notify('error'),
+    notify('error', '/dashboard'),
     dashboard.post
   )
 
@@ -56,16 +60,24 @@ router.route('/articles/:id?')
   .get(
     authGuard,
     article.validate,
-    article.notify,
-    article.render
+    notify('error', '/dashboard'),
+    article.render('html')
   )
 
 router.route('/articles/delete/:id?')
   .get(
     authGuard,
     article.validate,
-    article.notify,
+    notify('error', '/dashboard'),
     article.remove
+  )
+
+router.route('/articles/pdf/:id')
+  .get(
+    authGuard,
+    article.validate,
+    notify('error', '/dashboard'),
+    article.render('pdf')
   )
 
 router.get('/logout', logout);

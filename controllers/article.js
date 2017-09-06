@@ -1,4 +1,5 @@
 const { check, validationResult } = require('express-validator/check');
+const pdf = require('html-pdf');
 const Article = require('../models/Article');
 
 const validate = [
@@ -12,33 +13,35 @@ const validate = [
     .withMessage('Article not found')
 ];
 
-const notify = function(req, res, next) {
-  const errors = validationResult(req);
-  let errorMessages = [];
-  if(!errors.isEmpty()) {
-    Object.keys(errors.mapped()).forEach(field => {
-      errorMessages.push(errors.mapped()[field]['msg']);
+const render = function(type = 'html') {
+  return function(req, res, next) {
+    Article.findById(req.params.id, (err, article) => {
+      if(err) {
+        req.flash('error', ['Unable to get the article, please try again']);
+        return res.redirect('/dashboard');
+      }
+      if(!Boolean(article)) {
+        req.flash('error', ['Article do not or no longer exits']);
+        return res.redirect('/dashboard');
+      }
+      switch(type) {
+        case 'pdf':
+          const options = { 
+            format: 'A4', 
+            orientation: 'landscape'
+          }
+          pdf.create(article.content, options).toStream((err, stream) => {
+            res.setHeader('Content-type', 'application/pdf');
+            stream.pipe(res);
+          });
+        break;
+        default:
+          res.locals.article = article;
+          res.render('article');
+      }
     });
-    req.flash('error', errorMessages);
-    return res.redirect('/dashboard');
   }
-  next();
-}
-
-const render = function(req, res, next) {
-  Article.findById(req.params.id, (err, article) => {
-    if(err) {
-      req.flash('error', ['Unable to get the article, please try again']);
-      return res.redirect('/dashboard');
-    }
-    if(!Boolean(article)) {
-      req.flash('error', ['Article do not or no longer exits']);
-      return res.redirect('/dashboard');
-    }
-    res.locals.article = article;
-    res.render('article');
-  });
-}
+} 
 
 const remove = function(req, res, next) {
   Article.remove(req.params.id, (err, result) => {
@@ -51,4 +54,4 @@ const remove = function(req, res, next) {
   });
 }
 
-module.exports = { validate, notify, render, remove }
+module.exports = { validate, render, remove }
