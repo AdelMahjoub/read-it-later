@@ -18,6 +18,7 @@
   "scripts": {
     "start": "nf start prod",
     "dev": "nf start dev",
+    "postinstall": "mkdir -p .data && touch .data/db.sqlite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
