@@ -16,8 +16,8 @@
     "url": "https://github.com/AdelMahjoub/read-it-later"
   },
   "scripts": {
-    "start": "NODE_ENV=production nf start",
-    "dev": "PORT=3000 NODE_ENV=development nf run nodemon server.js",
+    "start": "nf start prod",
+    "dev": "nf start dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
