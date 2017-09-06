@@ -9,17 +9,15 @@
   "main": "server.js",
   "engines": {
     "node": "6.11.3",
-    "npm" :"3.10.10"
+    "npm": "3.10.10"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/AdelMahjoub/read-it-later"
   },
   "scripts": {
-    "server:dev": "NODE_ENV=development nodemon --inspect",
-    "server:prod": "NODE_ENV=production forever server.js",
-    "start": "npm run server:prod",
-    "dev": "npm run server:dev",
+    "start": "NODE_ENV=production nf start prod",
+    "dev": "NODE_ENV=development nf start dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -36,7 +34,6 @@
     "connect-flash": "^0.1.1",
     "connect-sqlite3": "^0.9.10",
     "cookie-parser": "^1.4.3",
-    "dotenv": "^4.0.0",
     "ejs": "^2.5.7",
     "express": "^4.15.4",
     "express-session": "^1.15.5",
