@@ -28,6 +28,8 @@ const render = function(type = 'html') {
       switch(type) {
         case 'pdf':
           const options = {
+            encoding: "utf-8",
+            minimumFontSize: 16,
             disableSmartShrinking: true,
           }
           res.setHeader('Content-type', 'application/pdf');
