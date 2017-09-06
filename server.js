@@ -1,3 +1,4 @@
+require('dotenv').config();
 require('./configs/passport')();
 const express      = require('express');                  // http://expressjs.com/en/4x/api.html
 const bodyParser   = require('body-parser');              // https://github.com/expressjs/body-parser

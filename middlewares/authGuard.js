@@ -1,6 +1,6 @@
 module.exports = function(req, res, next) {
   if(req.isUnauthenticated()) {
-    res.flash('error', ['Login to access your dashboard']);
+    req.flash('error', ['Login to access your dashboard']);
     return res.redirect('/login');
   }
   next();
