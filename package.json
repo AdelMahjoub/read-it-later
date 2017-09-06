@@ -16,7 +16,6 @@
     "url": "https://github.com/AdelMahjoub/read-it-later"
   },
   "scripts": {
-    "preinstall": "mkdir .data && touch .data/db.sqlite",
     "start": "nf start prod",
     "dev": "nf start dev",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -39,6 +38,7 @@
     "express": "^4.15.4",
     "express-session": "^1.15.5",
     "express-validator": "^4.1.1",
+    "foreman": "^2.0.0",
     "forever": "^0.15.3",
     "helmet": "^3.8.1",
     "node-pre-gyp": "^0.6.36",
