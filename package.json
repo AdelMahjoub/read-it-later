@@ -1,8 +1,20 @@
 {
   "name": "read-it-later",
+  "private": false,
+  "maintainers": [
+    "Adel Mahjoub"
+  ],
   "version": "1.0.0",
-  "description": "",
+  "description": "Store articles to read and download as pdf files.",
   "main": "server.js",
+  "engines": {
+    "node": "6.11.3",
+    "npm" :"3.10.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AdelMahjoub/read-it-later"
+  },
   "scripts": {
     "server:dev": "NODE_ENV=development nodemon --inspect",
     "server:prod": "NODE_ENV=production forever server.js",
@@ -15,8 +27,8 @@
     "express",
     "sqlite3"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Adel Mahjoub",
+  "license": "Apache License",
   "dependencies": {
     "bcrypt": "^1.0.3",
     "body-parser": "^1.17.2",

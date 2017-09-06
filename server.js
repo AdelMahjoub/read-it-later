@@ -1,21 +1,24 @@
-require('dotenv').config();
+require('dotenv').config();                               // https://github.com/motdotla/dotenv
 require('./configs/passport')();
-const express      = require('express');
-const bodyParser   = require('body-parser');
-const session      = require('express-session');
-const SQLiteStore  = require('connect-sqlite3')(session); 
-const cookieParser = require('cookie-parser');
-const flash        = require('connect-flash');
-const helmet       = require('helmet');
-const compression  = require('compression');
-const path         = require('path');
-const passport     = require('passport');
+const express      = require('express');                  // http://expressjs.com/en/4x/api.html
+const bodyParser   = require('body-parser');              // https://github.com/expressjs/body-parser
+const session      = require('express-session');          // https://github.com/expressjs/session
+const SQLiteStore  = require('connect-sqlite3')(session); // https://github.com/rawberg/connect-sqlite3
+const cookieParser = require('cookie-parser');            // https://github.com/expressjs/cookie-parser
+const flash        = require('connect-flash');            // https://github.com/jaredhanson/connect-flash
+const helmet       = require('helmet');                   // https://github.com/helmetjs/helmet
+const compression  = require('compression');              // https://github.com/expressjs/compression
+const path         = require('path');                     // https://nodejs.org/dist/latest-v6.x/docs/api/path.html
+const passport     = require('passport');                 // http://passportjs.org/docs
   
 const app     = express();
-const context = require('./middlewares/context');
+const context = require('./middlewares/context'); // Middleware that adds more variables to the views context 
 const routes  = require('./routes');
 
+// Require the connection to the database
 const db = require('./db');
+
+// Instanciate the sessions store
 const sessStore = new SQLiteStore({
   table: 'sessions',
   db: process.env.DB_FILE,
@@ -23,12 +26,21 @@ const sessStore = new SQLiteStore({
 })
 
 app
+  /**
+   * App settings
+   * 
+   * // http://expressjs.com/en/4x/api.html#app.settings.table
+   */
   .set('port', process.env.PORT || 3000)
   .set('json spaces', 2)
   .set('view engine', 'ejs')
   .set('views', path.join(__dirname, 'views'))
   .enable('trust proxy')
 
+  /**
+   * App middlewares chain
+   * Usage of each middleware is described on the links on top of this file 
+   */
   .use(helmet())
   .use(cookieParser(process.env.SESS_SECRET))
   .use(session({

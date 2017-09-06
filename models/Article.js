@@ -3,7 +3,7 @@ const db = require('../db');
 class Article {
 
   /**
-   * 
+   * Instanciate an article to insert
    * @param {{ title: string, content: string, posted_by: number, url: string }} obj 
    */
   constructor(obj) {
@@ -13,7 +13,7 @@ class Article {
   }
 
   /**
-   * 
+   * Find all articles of a user
    * @param {number} userId 
    * @param {function(Error, [])} cb 
    */
@@ -23,7 +23,7 @@ class Article {
   }
 
   /**
-   * 
+   * Find an article by the article id
    * @param {number} id 
    * @param {function(Error, Article)} cb 
    */
@@ -32,7 +32,7 @@ class Article {
   }
 
   /**
-   * 
+   * Insert a new article
    * @param {Article} article 
    * @param {number} userId 
    * @param {function(Error, { lastID: number, changes: number })} cb 
@@ -50,7 +50,7 @@ class Article {
   }
 
   /**
-   * 
+   * Delete an article
    * @param {number} articleId 
    * @param {function(Error, { lastID: number, changes: number })} cb 
    */

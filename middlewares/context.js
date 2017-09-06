@@ -3,8 +3,8 @@ module.exports = function(app) {
     app.locals.title = "Read it later";
     app.locals.errors = req.flash('error');
     app.locals.infos = req.flash('info');
-    app.locals.formUsername = req.flash('username');
-    app.locals.formEmail = req.flash('email');
+    app.locals.invalidUsername = req.flash('invalidUsername');
+    app.locals.invalidEmail = req.flash('invalidEmail');
     app.locals.user = req.user;
     next();
   }

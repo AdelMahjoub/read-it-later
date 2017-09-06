@@ -3,7 +3,7 @@ const db = require('../db');
 
 class User {
   /**
-   * 
+   * Instanciate a new user to insert
    * @param {{ username: string, email:string, password:string }} obj 
    */
   constructor(obj) {

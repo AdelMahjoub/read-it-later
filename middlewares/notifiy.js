@@ -11,8 +11,8 @@ module.exports = function(type, path) {
         errorMessages.push(errors.mapped()[field]['msg']);
       });
       req.flash(type, errorMessages);
-      req.flash('username', req.body['username']);
-      req.flash('email', req.body['email']);
+      req.flash('invalidUsername', req.body['username']);
+      req.flash('invalidEmail', req.body['email']);
       return res.redirect(path);
     }
     next();
