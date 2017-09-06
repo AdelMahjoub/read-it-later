@@ -3,8 +3,6 @@
 ### Requirements 
 In order to generate PDF files, [wkhtmltopdf](https://wkhtmltopdf.org/index.html) must be installed on the application host.
 
-[node-foreman](https://github.com/strongloop/node-foreman)
-
 ### Configuration
 
 Add a `.env` file on the root level folder of the app.
