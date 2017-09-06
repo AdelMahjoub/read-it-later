@@ -41,7 +41,7 @@
           </td>
           <td>
             <a
-            style="text-decoration: none; color: green;" 
+            style="color: green;" 
             href="<%= article.url %>" target="_blank">
               <%= article.url.substring(0,50).concat('...')  %>
             </a>
@@ -49,12 +49,12 @@
           <td><%= (new Date(article.created_at * 1000)).toLocaleDateString() %></td>
           <td>
             <a
-            style="text-decoration: none; color: lightcoral;" 
+            style="color: lightcoral;" 
             href="/articles/pdf/<%= article.id %>">PDF</a>
           </td>
           <td>
             <a
-            style="text-decoration: none; color: red;"
+            style="color: red;"
             href="/articles/delete/<%= article.id %>">&#10008;</a>
           </td>
         </tr>
