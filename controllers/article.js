@@ -28,7 +28,6 @@ const render = function(type = 'html') {
       switch(type) {
         case 'pdf':
           const options = {
-            minimumFontSize: 24,
             disableSmartShrinking: true,
           }
           res.setHeader('Content-type', 'application/pdf');
