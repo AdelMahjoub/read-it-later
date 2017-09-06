@@ -1,7 +1,8 @@
-<% if(infos.length) { %>
-  <ul>
-  <% infos.forEach(function(info) { %>
-    <li class="info"><b><%= info %></b></li>
-  <% }); %>
-  </ul>
+<% if(infos.length > 0) { %>
+  <div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <% infos.forEach(function(info) { %>
+      <p><b><%= info %></b></p>
+    <% }); %>
+  </div>
 <% } %>

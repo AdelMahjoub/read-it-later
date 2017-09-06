@@ -1,7 +1,8 @@
 <% if(errors.length > 0) { %>
-  <ul>
-  <% errors.forEach(function(error) { %>
-    <li class="error"><b><%= error %></b></li>
-  <% }); %>
-  </ul>
+  <div class="alert alert-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <% errors.forEach(function(error) { %>
+      <p><b><%= error %></b></p>
+    <% }); %>
+  </div>
 <% } %>

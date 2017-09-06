@@ -2,18 +2,20 @@
 
 <% include templates/navigation %>
 
-<p>
-  <% include templates/errors %>
-  <% include templates/infos %>
-</p>
+<div class="row">
+  <div class="col-xs-12 col-md-6">
+    <% include templates/errors %>
+    <% include templates/infos %>
+  </div>
+</div>
 
-<p>
-  <b>Usage: </b>
-  <ol>
-    <li>Signup to create a dashboard</li>
-    <li>Once you are logged in, you can add and read articles from your dashboard</li>
-    <li>Paste a URL of an article to add it to your read list</li>
-  </ol>
-</p>
+<div class="row">
+  <div class="col-xs-12 col-md-12">
+    <p>Signup to create a dashboard.</p>
+    <p>Once you are logged in, you can add and read articles from your dashboard.</p>
+    <p>Paste a URL of an article to add it to your read list.</p>
+    <p>You can read articles in html or pdf format.</p>
+  </div> 
+</div>
 
 <% include templates/foot %>
