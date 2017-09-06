@@ -42,14 +42,14 @@
           <td>
             <a
             style="color: green;" 
-            href="<%= article.url %>" target="_blank">
-              <%= article.url.substring(0,50).concat('...')  %>
-            </a>
+            href="<%= article.url %>" 
+            target="_blank"><%= article.url.substring(0,50).concat('...')  %></a>
           </td>
           <td><%= (new Date(article.created_at * 1000)).toLocaleDateString() %></td>
           <td>
             <a
-            style="color: lightcoral;" 
+            style="color: lightcoral;"
+            target="_blank" 
             href="/articles/pdf/<%= article.id %>">PDF</a>
           </td>
           <td>

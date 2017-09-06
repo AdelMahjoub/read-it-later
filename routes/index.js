@@ -1,9 +1,6 @@
 const router   = require('express').Router();
 const passport = require('passport');
 
-const pdf = require('html-pdf');
-const Article = require('../models/Article'); 
-
 const notify       = require('../middlewares/notifiy');
 const errorHandler = require('../middlewares/errorHandler');
 const authGuard    = require('../middlewares/authGuard');

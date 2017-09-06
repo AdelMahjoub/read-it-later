@@ -31,16 +31,15 @@
     "express-validator": "^4.1.1",
     "forever": "^0.15.3",
     "helmet": "^3.8.1",
-    "html-pdf": "^2.1.0",
     "node-pre-gyp": "^0.6.36",
     "node-readability": "^3.0.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "sqlite3": "^3.1.9",
-    "validator": "^8.1.0"
+    "validator": "^8.1.0",
+    "wkhtmltopdf": "^0.3.4"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0",
-    "nsp": "^2.7.0"
+    "nodemon": "^1.11.0"
   }
 }

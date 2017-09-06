@@ -1,5 +1,6 @@
 const { check, validationResult } = require('express-validator/check');
-const pdf = require('html-pdf');
+const path = require('path');
+const wkhtmltopdf = require('wkhtmltopdf');
 const Article = require('../models/Article');
 
 const validate = [
@@ -26,14 +27,12 @@ const render = function(type = 'html') {
       }
       switch(type) {
         case 'pdf':
-          const options = { 
-            format: 'A4', 
-            orientation: 'landscape'
+          const options = {
+            minimumFontSize: 24,
+            disableSmartShrinking: true,
           }
-          pdf.create(article.content, options).toStream((err, stream) => {
-            res.setHeader('Content-type', 'application/pdf');
-            stream.pipe(res);
-          });
+          res.setHeader('Content-type', 'application/pdf');
+          wkhtmltopdf(article.content, options).pipe(res);
         break;
         default:
           res.locals.article = article;
