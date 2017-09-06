@@ -16,6 +16,7 @@
     "url": "https://github.com/AdelMahjoub/read-it-later"
   },
   "scripts": {
+    "preinstall": "mkdir .data && touch .data/db.sqlite",
     "start": "nf start prod",
     "dev": "nf start dev",
     "test": "echo \"Error: no test specified\" && exit 1"
